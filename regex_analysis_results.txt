@@ -4,27 +4,23 @@
 
 PRICES: 996 совпадений
 Уникальных: 901
-Примеры: ['Â£17.46', 'Â£42.16', 'Â£26.78', 'Â£14.08', 'Â£31.22', 'Â£58.35', 'Â£20.90', 'Â£32.42', 'Â£57.49', 'Â£15.77']
+Примеры: ['Â£54.64', 'Â£54.63', 'Â£28.09', 'Â£21.95', 'Â£40.45', 'Â£16.97', 'Â£37.05', 'Â£14.36', 'Â£52.79', 'Â£21.30']
 
 URLS: 996 совпадений
 Уникальных: 996
-Примеры: ['http://books.toscrape.com/catalogue/i-had-a-nice-time-and-other-lies-how-to-find-love-sht-like-that_814/', 'http://books.toscrape.com/catalogue/the-nanny-diaries-nanny-1_265/', 'http://books.toscrape.com/catalogue/millers-valley_534/', 'http://books.toscrape.com/catalogue/the-kite-runner_847/', 'http://books.toscrape.com/catalogue/rising-strong_539/', 'http://books.toscrape.com/catalogue/eureka-trivia-60_805/', 'http://books.toscrape.com/catalogue/the-rose-the-dagger-the-wrath-and-the-dawn-2_278/', 'http://books.toscrape.com/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/', 'http://books.toscrape.com/catalogue/lean-in-women-work-and-the-will-to-lead_183/', 'http://books.toscrape.com/catalogue/morning-star-red-rising-3_196/']
+Примеры: ['http://books.toscrape.com/catalogue/the-firm_404/', 'http://books.toscrape.com/catalogue/every-heart-a-doorway-every-heart-a-doorway-1_465/', 'http://books.toscrape.com/catalogue/when-breath-becomes-air_553/', 'http://books.toscrape.com/catalogue/the-last-painting-of-sara-de-vos_259/', 'http://books.toscrape.com/catalogue/higherselfie-wake-up-your-life-free-your-soul-find-your-tribe_957/', 'http://books.toscrape.com/catalogue/twenties-girl_292/', 'http://books.toscrape.com/catalogue/salt_731/', 'http://books.toscrape.com/catalogue/jane-eyre_27/', 'http://books.toscrape.com/catalogue/alice-in-wonderland-alices-adventures-in-wonderland-1_5/', 'http://books.toscrape.com/catalogue/stars-above-the-lunar-chronicles-45_632/']
 
 RATINGS: 1256 совпадений
 Уникальных: 5
-Примеры: ['One', 'Two', 'Three', 'Five', 'Four']
+Примеры: ['Two', 'One', 'Three', 'Five', 'Four']
 
 AVAILABILITY: 996 совпадений
 Уникальных: 21
-Примеры: ['In stock (10 available)', 'In stock (5 available)', 'In stock (3 available)', 'In stock (6 available)', 'In stock (11 available)', 'In stock (19 available)', 'In stock (4 available)', 'In stock (13 available)', 'In stock (1 available)', 'In stock (15 available)']
-
-OBJECT_IDS: 996 совпадений
-Уникальных: 996
-Примеры: ['69bc11a38c4f1c4727e353ed', '69bc11a28c4f1c4727e352cc', '69bc11a38c4f1c4727e35442', '69bc11a48c4f1c4727e3552d', '69bc11a58c4f1c4727e3560b', '69bc11a58c4f1c4727e3557d', '69bc11a28c4f1c4727e35323', '69bc11a28c4f1c4727e35338', '69bc11a58c4f1c4727e3558e', '69bc11a58c4f1c4727e355ab']
+Примеры: ['In stock (10 available)', 'In stock (4 available)', 'In stock (6 available)', 'In stock (13 available)', 'In stock (22 available)', 'In stock (3 available)', 'In stock (1 available)', 'In stock (9 available)', 'In stock (17 available)', 'In stock (20 available)']
 
 PUBLISHERS: 21 совпадений
 Уникальных: 15
-Примеры: ['tipping the bottle\\', 'Nones\\', 'Barrel Fever\\', 'BABOUSHKA\\', "What kind of confidence would it take for a woman to buck the old boy's club of politics in 1872? More than 140 years pre-Hillary, there was Victoria Woodhull. This book takes you back with a breathtaking, present-tense bird's eye view into a time when women's liberation was primarily confined to one woman's very capable, independent mind. I couldn't put it down.\\", 'the most powerful civilian post within his gift\\', 'Probably the greatest zombie manga ever.\\', 'human computers\\', 'thin-slicing\\', "An engaging read for all who have been through the long, dark, dating wars, and still believe there's sunshine, and a Mr. Darcy, at the end of the tunnel.\\"]
+Примеры: ['Erotic and absorbing...Written with starling power.\\', 'outliers\\', 'An action packed story complete with some hilarious scenes can be enjoyed in this amusing and entertaining adventurous adult coming-of-age tale...An exemplary and highly entertaining read for todayâ\x80\x99s hectic pace of livingâ\x80\x94highly recommended.\\', "An engaging read for all who have been through the long, dark, dating wars, and still believe there's sunshine, and a Mr. Darcy, at the end of the tunnel.\\", 'Wildly entertaining ... Lyons has injected a dose of sanity into a world gone mad.\\', 'thin-slicing\\', 'human computers\\', 'BABOUSHKA\\', 'Barrel Fever\\', 'tipping the bottle\\']
 
 YEARS: 281 совпадений
 Уникальных: 2
@@ -32,5 +28,13 @@ YEARS: 281 совпадений
 
 AUTHORS: 130 совпадений
 Уникальных: 91
-Примеры: ['Ella', 'Paulo Coelho', 'Inc', 'Lisa Gardner', 'Gareth Stedman', 'Strachey', 'Mean Ghosts', 'Roman', 'The Rolling Stones', 'Freud']
+Примеры: ['The New York Times', 'Pulitzer Prize', 'Douglas', 'John Josias Conybeare', 'Yeats', 'Freud', 'David Mark', 'Deb Perelman', 'Michael Mc', 'Smith']
+
+CATEGORIES: 125 совпадений
+Уникальных: 13
+Примеры: ['Biography', 'Poetry', 'Fantasy', 'History', 'Children', 'Romance', 'Business', 'Travel', 'Mystery', 'Music']
+
+PAGES: 1 совпадений
+Уникальных: 1
+Примеры: ['109']
 
