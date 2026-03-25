@@ -171,7 +171,7 @@ def print_analysis_results(results):
         print(f"Примеры: {unique_publishers[:5]}")
     print()
     
-    print("6. ПОИСК КАТЕГОРИЙ/ЖАНРОВ КНИГ")
+    print("ПОИСК КАТЕГОРИЙ/ЖАНРОВ КНИГ")
     print("Регулярное выражение: r'\\b(?:Fiction|Mystery|Romance|Science|History|Biography|Fantasy|Thriller|Poetry|Art|Music|Travel|Cooking|Business|Self-help|Children|Young Adult|Non-fiction)\\b'")
     print("Описание: Ищет популярные категории и жанры книг")
     categories = results['patterns_found']['categories']
@@ -185,7 +185,7 @@ def print_analysis_results(results):
             print(f"  {category}: {count}")
     print()
     
-    print("7. ПОИСК СТРАНИЦ В ОПИСАНИЯХ")
+    print("ПОИСК СТРАНИЦ В ОПИСАНИЯХ")
     print("Регулярное выражение: r'\\b(?:page|pages|p\\.|pp\\.)\\s+(\\d+)\\b'")
     print("Описание: Ищет упоминания страниц в описаниях")
     pages = results['patterns_found']['pages']
@@ -196,7 +196,7 @@ def print_analysis_results(results):
         print(f"Примеры: {pages[:5]}")
     print()
     
-    print("8. ПОИСК ГОДОВ В ОПИСАНИЯХ")
+    print("ПОИСК ГОДОВ В ОПИСАНИЯХ")
     print("Регулярное выражение: r'\\b(19|20)\\d{2}\\b'")
     print("Описание: Ищет годы с 1900 по 2099")
     years = results['patterns_found']['years']
@@ -207,7 +207,7 @@ def print_analysis_results(results):
         print(f"Примеры: {unique_years[:10]}")
     print()
     
-    print("9. ПОИСК ИМЕН АВТОРОВ")
+    print("ПОИСК ИМЕН АВТОРОВ")
     print("Регулярное выражение: r'\\bby\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)*)'")
     print("Описание: Ищет имена авторов после слова 'by'")
     authors = results['patterns_found']['authors']
