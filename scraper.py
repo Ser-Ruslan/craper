@@ -5,10 +5,10 @@ import hashlib
 import requests
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
+from mongo_db import get_mongo_connection
 
 BASE_URL = "http://books.toscrape.com"
 DATA_DIR = "data"
-LINKS_FILE = os.path.join(DATA_DIR, "raw_links.json")
 PAGES_DIR = os.path.join(DATA_DIR, "raw_pages")
 
 HEADERS = {
@@ -17,20 +17,41 @@ HEADERS = {
 }
 
 os.makedirs(PAGES_DIR, exist_ok=True)
-os.makedirs(os.path.dirname(LINKS_FILE), exist_ok=True)
 
 def get_filename(url: str) -> str:
     return hashlib.md5(url.encode("utf-8")).hexdigest() + ".html"
 
 def load_links():
-    if os.path.exists(LINKS_FILE):
-        with open(LINKS_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
+    mongo = get_mongo_connection()
+    if not mongo.connect():
+        return None
+    
+    links_collection = mongo.get_links_collection()
+    links = list(links_collection.find({}))
+    
+    if links:
+        # Convert ObjectId to string for JSON serialization
+        for link in links:
+            link['_id'] = str(link['_id'])
+        print(f"Загружено {len(links)} ссылок из MongoDB")
+        return links
     return None
 
 def save_links(links):
-    with open(LINKS_FILE, "w", encoding="utf-8") as f:
-        json.dump(links, f, ensure_ascii=False, indent=2)
+    mongo = get_mongo_connection()
+    links_collection = mongo.get_links_collection()
+    
+    for link in links:
+        # Remove _id if present to allow upsert
+        link_copy = link.copy()
+        if '_id' in link_copy:
+            del link_copy['_id']
+        
+        links_collection.update_one(
+            {"url": link["url"]},
+            {"$set": link_copy},
+            upsert=True
+        )
 
 def discover_links():
     print("Запуск обнаружения ссылок (первый запуск)...")
@@ -84,36 +105,44 @@ def discover_links():
     return links
 
 def main_scraper():
-    links = load_links()
-    if not links:
-        links = discover_links()
-        save_links(links)
+    mongo = get_mongo_connection()
+    if not mongo.connect():
+        print("Не удалось подключиться к MongoDB. Выход.")
+        return
+    
+    try:
+        links = load_links()
+        if not links:
+            links = discover_links()
+            save_links(links)
 
-    pending = [lnk for lnk in links if lnk["status"] == "pending"]
-    print(f" Скачивание {len(pending)} страниц (можно прерывать и продолжать)...")
+        pending = [lnk for lnk in links if lnk["status"] == "pending"]
+        print(f" Скачивание {len(pending)} страниц (можно прерывать и продолжать)...")
 
-    for item in pending:
-        url = item["url"]
-        try:
-            r = requests.get(url, headers=HEADERS, timeout=10)
-            r.raise_for_status()
+        for item in pending:
+            url = item["url"]
+            try:
+                r = requests.get(url, headers=HEADERS, timeout=10)
+                r.raise_for_status()
 
-            filename = get_filename(url)
-            filepath = os.path.join(PAGES_DIR, filename)
-            with open(filepath, "w", encoding="utf-8") as f:
-                f.write(r.text)
+                filename = get_filename(url)
+                filepath = os.path.join(PAGES_DIR, filename)
+                with open(filepath, "w", encoding="utf-8") as f:
+                    f.write(r.text)
 
-            item["status"] = "done"
-            item["html_file"] = filename
-            print(f"✔ Скачано: {url}")
-        except Exception as e:
-            item["status"] = "error"
-            print(f"✖ Ошибка: {url} — {e}")
+                item["status"] = "done"
+                item["html_file"] = filename
+                print(f"✔ Скачано: {url}")
+            except Exception as e:
+                item["status"] = "error"
+                print(f"✖ Ошибка: {url} — {e}")
 
-        save_links(links)          # сохраняем прогресс после каждой страницы
-        time.sleep(0.5)            
+            save_links(links)          # сохраняем прогресс после каждой страницы
+            time.sleep(0.5)            
 
-    print(" Скачивание завершено!")
+        print(" Скачивание завершено!")
+    finally:
+        mongo.close()
 
 if __name__ == "__main__":
     main_scraper()
